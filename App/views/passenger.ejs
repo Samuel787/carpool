@@ -1,144 +1,230 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <!-- Page Title -->
     <title>Passenger Dashboard</title>
     <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
-    <link rel='stylesheet' href='/stylesheets/login.css' />
+    <link rel="stylesheet" href="/stylesheets/login.css" />
 
     <!-- CSS for Styling -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
 
     <!-- JavaScript for Interactivity -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
 
     <script>
-        $(document).ready(function () {
-            $(".dropdown-menu li a").click(function () {
-                $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
-                $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
-            });
+      $(document).ready(function() {
+        $(".dropdown-menu li a").click(function() {
+          $(this)
+            .parents(".dropdown")
+            .find(".btn")
+            .html($(this).text() + ' <span class="caret"></span>');
+          $(this)
+            .parents(".dropdown")
+            .find(".btn")
+            .val($(this).data("value"));
         });
+      });
     </script>
-</head>
+  </head>
 
-<body style="background-color: white; background-size:100%; background-position-y: -400px;">
-
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background:#2e2e2e;">
-        <a class="navbar-brand" href="/">Carpool</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="signup">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login">Log In</a>
-                </li>
-            </ul>
-        </div>
+  <body
+    style="background-color: white; background-size:100%; background-position-y: -400px;"
+  >
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background:#2e2e2e;"
+    >
+      <a class="navbar-brand" href="/">Carpool</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signup">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login">Log In</a>
+          </li>
+        </ul>
+      </div>
     </nav>
     <div
-        style="background-image: url('/images/boatImage.jpg'); background-position-y: -200px; background-size: cover; background-attachment: fixed;">
-        <div class="jumbotron jumbotron-fluid" style="background:rgba(0, 0, 0, .6);">
-            <div class="container" style="color:white;">
-                <h1 style="font-size: 64px;">CARPOOL@2019</h1>
-                <p class="lead">Share a Ride or Ride to Share</p>
-            </div>
+      style="background-image: url('/images/boatImage.jpg'); background-position-y: -200px; background-size: cover; background-attachment: fixed;"
+    >
+      <div
+        class="jumbotron jumbotron-fluid"
+        style="background:rgba(0, 0, 0, .6);"
+      >
+        <div class="container" style="color:white;">
+          <h1 style="font-size: 64px;">CARPOOL@2019</h1>
+          <p class="lead">Share a Ride or Ride to Share</p>
         </div>
+      </div>
     </div>
 
     <div class="container" style="background:white">
-        <h2 className="my-5"> Welcome </h2>
-        <div style="height:20px;"></div>
+      <h2 className="my-5">Welcome</h2>
+      <div style="height:20px;"></div>
 
-        <form method="post" action="passenger">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Start Location" aria-label="Recipient's username"
-                    aria-describedby="button-addon2">
+      <form method="post" action="passenger">
+        <div class="input-group mb-3">
+          <!-- <input type="text" class="form-control" placeholder="Start Location" aria-label="Recipient's username"
+                    aria-describedby="button-addon2"> -->
+          <form method="post">
+            <select name="location" formaction="passenger/basic">
+              <% for (var i = 0; i < result.length; i++) { %>
+
+              <option><%= result[i]%></option>
+
+              <% } %>
+            </select>
+          </form>
+
+          <div class="input-group-append">
+            <form method="post">
+              <button
+                class="btn btn-primary"
+                type="button"
+                id="button-addon2"
+                formaction="passenger/submit"
+              >
+                Favourite It
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <!-- <input type="text" class="form-control" placeholder="Destination" aria-label="Recipient's username"
+                    aria-describedby="button-addon2"> -->
+          <form method="post">
+            <select name="location" formaction="passenger/basic">
+              <% for (var i = 0; i < result.length; i++) { %>
+
+              <option><%= result[i]%></option>
+
+              <% } %>
+            </select>
+          </form>
+          <div class="input-group-append">
+            <form method="post">
+              <button
+                class="btn btn-primary"
+                type="button"
+                id="button-addon2"
+                formaction="passenger/submit"
+              >
+                Favourite It
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="loginbtn">
+          Search
+        </button>
+      </form>
+      <br />
+      <br />
+      <h3>Available Advertisements</h3>
+      <br />
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Driver Name</th>
+            <th scope="col">Start Location</th>
+            <th scope="col">End Location</th>
+            <th scope="col">Est. Artival Time</th>
+            <th scope="col">Number of Pax</th>
+            <th scope="col">Your Bid ($)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Rowdy</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>
+              <div class="dropdown">
+                <button
+                  class="btn btn-primary dropdown-toggle"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  1
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#" data-value="action">1</a></li>
+                  <li><a href="#" data-value="another action">2</a></li>
+                  <li><a href="#" data-value="something else here">3</a></li>
+                  <li><a href="#" data-value="separated link">4</a></li>
+                </ul>
+              </div>
+            </td>
+            <td>
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Your bid"
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2"
+                />
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="button-addon2">Favourite It</button>
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    Bid!
+                  </button>
                 </div>
-            </div>
-
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Destination" aria-label="Recipient's username"
-                    aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="button-addon2">Favourite It</button>
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary" id="loginbtn">Search</button>
-        </form>
-        <br />
-        <br />
-        <h3>Available Advertisements</h3>
-        <br />
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Driver Name</th>
-                    <th scope="col">Start Location</th>
-                    <th scope="col">End Location</th>
-                    <th scope="col">Est. Artival Time</th>
-                    <th scope="col">Number of Pax</th>
-                    <th scope="col">Your Bid ($)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Rowdy</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="true">
-                                1
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#" data-value="action">1</a></li>
-                                <li><a href="#" data-value="another action">2</a></li>
-                                <li><a href="#" data-value="something else here">3</a></li>
-                                <li><a href="#" data-value="separated link">4</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Your bid"
-                                aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" id="button-addon2">Bid!</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <br />
     <br />
     <br />
-</body>
-
+  </body>
 </html>
