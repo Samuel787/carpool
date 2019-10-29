@@ -100,64 +100,75 @@
       <h2 className="my-5">Welcome</h2>
       <div style="height:20px;"></div>
 
-      <form method="post" action="passenger">
-        <div class="input-group mb-3">
-          <!-- <input type="text" class="form-control" placeholder="Start Location" aria-label="Recipient's username"
-                    aria-describedby="button-addon2"> -->
+      <div class="input-group mb-3">
+        <input
+          name="destination1"
+          type="text"
+          class="form-control"
+          placeholder="Start Location"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+        <form method="post" action="/passenger/basic">
+          <select name="location">
+            <% for (var i = 0; i < result.length; i++) { %>
+
+            <option><%= result[i]%></option>
+
+            <% } %>
+
+            <option>singapore</option>
+          </select>
+        </form>
+
+        <!-- <div class="input-group-append"> -->
+        <form method="post">
+          <button
+            class="btn btn-primary"
+            id="button-addon2"
+            formaction="/passenger/submit1"
+          >
+            Favourite It
+          </button>
+        </form>
+        <!-- </div> -->
+      </div>
+
+      <div class="input-group mb-3">
+        <input
+          name="destination2"
+          type="text"
+          class="form-control"
+          placeholder="Destination"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+        <form method="post">
+          <select name="location" formaction="/passenger/basic">
+            <% for (var i = 0; i < result.length; i++) { %>
+
+            <option><%= result[i]%></option>
+
+            <% } %>
+          </select>
+        </form>
+        <div class="input-group-append">
           <form method="post">
-            <select name="location" formaction="passenger/basic">
-              <% for (var i = 0; i < result.length; i++) { %>
-
-              <option><%= result[i]%></option>
-
-              <% } %>
-            </select>
+            <button
+              class="btn btn-primary"
+              type="button"
+              id="button-addon2"
+              formaction="/passenger/submit2"
+            >
+              Favourite It
+            </button>
           </form>
-
-          <div class="input-group-append">
-            <form method="post">
-              <button
-                class="btn btn-primary"
-                type="button"
-                id="button-addon2"
-                formaction="passenger/submit"
-              >
-                Favourite It
-              </button>
-            </form>
-          </div>
         </div>
+      </div>
 
-        <div class="input-group mb-3">
-          <!-- <input type="text" class="form-control" placeholder="Destination" aria-label="Recipient's username"
-                    aria-describedby="button-addon2"> -->
-          <form method="post">
-            <select name="location" formaction="passenger/basic">
-              <% for (var i = 0; i < result.length; i++) { %>
-
-              <option><%= result[i]%></option>
-
-              <% } %>
-            </select>
-          </form>
-          <div class="input-group-append">
-            <form method="post">
-              <button
-                class="btn btn-primary"
-                type="button"
-                id="button-addon2"
-                formaction="passenger/submit"
-              >
-                Favourite It
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary" id="loginbtn">
-          Search
-        </button>
-      </form>
+      <button type="submit" class="btn btn-primary" id="loginbtn">
+        Search
+      </button>
       <br />
       <br />
       <h3>Available Advertisements</h3>
