@@ -45,12 +45,13 @@ router.post("/basic", function(req, res, next) {
 });
 
 router.post("/submit1", function(req, res, next) {
-  console.log("hello");
+  console.log("hello submit 1");
   try {
     // Construct Specific SQL Query
     var email = passenger_email;
     var location = req.body.destination1;
-    pool.query(sql.query.submit, [email, location], (err, data) => {
+    console.log(email, location);
+    pool.query(sql.query.submit1, [email, location], (err, data) => {
       console.log(data.rows);
       console.log("hello");
       res.render("passenger", {
