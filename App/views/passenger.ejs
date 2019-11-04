@@ -64,18 +64,40 @@
 
         <form method="post" action="passenger">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Start Location" aria-label="Recipient's username"
+                <form method= "post" formaction = "/passenger/basic">
+                <input name = "destination1" type="text" class="form-control" placeholder="Start Location" list="fav" aria-label="Recipient's username"
                     aria-describedby="button-addon2">
+                    <datalist id = "fav">
+                            <% for (var i = 0; i < result.length; i++) { %>
+    
+                                <option><%= result[i]%></option>
+                        
+                             <% } %>
+                    </datalist>
+                </form>
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="button-addon2">Favourite It</button>
+                    <form method = "post">
+                        <button class="btn btn-primary" type="button" id="button-addon2" formaction="/passenger/submit1">Favourite It</button>
+                    </form>
                 </div>
             </div>
 
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Destination" aria-label="Recipient's username"
+                <form method= "post" formaction = "/passenger/basic">
+                <input name = "destination2" type="text" class="form-control" placeholder="Destination" list = "fav" aria-label="Recipient's username"
                     aria-describedby="button-addon2">
+                    <datalist id = "fav">
+                        <% for (var i = 0; i < result.length; i++) { %>
+
+                            <option><%= result[i]%></option>
+                    
+                         <% } %>
+                    </datalist>
+                </form>
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="button-addon2">Favourite It</button>
+                    <form method = "post">
+                        <button class="btn btn-primary" type="button" id="button-addon2" formaction="/passenger/submit2">Favourite It</button>
+                    </form>
                 </div>
             </div>
 
