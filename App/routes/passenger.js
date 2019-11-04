@@ -44,7 +44,9 @@ sql.query = {
             INSERT INTO favouriteLocation (email_passenger, loc_name) VALUES($1, $2);`,
 
   submit2: `INSERT INTO location (loc_name, loc_add) VALUES($1 , 1233);
-            INSERT INTO favouriteLocation (email_passenger, loc_name) VALUES($1, $2);`
+            INSERT INTO favouriteLocation (email_passenger, loc_name) VALUES($1, $2);`,
+
+  passenger_basic: `SELECT * FROM favouriteLocation;`
 };
 
 var passenger_email;
@@ -127,6 +129,20 @@ router.post("/submit2", function(req, res, next) {
     });
   } catch {
     console.log("passenger submit fav button error");
+  }
+});
+
+router.post("/basic", function(req, res, next) {
+  try {
+    // Construct Specific SQL Query
+    pool.query(sql.query.passenger_basic, (err, data) => {
+      console.log(data.rows);
+      res.render("passenger", {
+        result: data.rows
+      });
+    });
+  } catch {
+    console.log("passenger basic error");
   }
 });
 
