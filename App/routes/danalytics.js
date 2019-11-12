@@ -262,7 +262,8 @@ router.post('/increasing', async function(req, res, next){
         if (data != undefined) {
           console.log(data.rows)
           res.render('danalytics', {
-            own_analytics: own_analytics.rows, result: data.rows, 
+            own_analytics: own_analytics.rows, result: data.rows,
+            user_name: req.session.passport.user.name  
           })
         } else {
           console.log('data is undefined')
@@ -286,6 +287,7 @@ router.post('/decreasing', async function(req, res, next){
           console.log(data.rows)
           res.render('danalytics', {
             own_analytics: own_analytics.rows, result: data.rows, 
+            user_name: req.session.passport.user.name  
           })
         } else {
           console.log('data is undefined')
@@ -308,7 +310,8 @@ router.post('/00', async function(req, res, next){
         if (data != undefined) {
           console.log(data.rows)
           res.render('danalytics', {
-            own_analytics: own_analytics.rows, result: data.rows, 
+            own_analytics: own_analytics.rows, result: data.rows,
+            user_name: req.session.passport.user.name   
           })
         } else {
           console.log('data is undefined')
@@ -331,7 +334,8 @@ router.post('/02', async function(req, res, next){
         if (data != undefined) {
           console.log(data.rows)
           res.render('danalytics', {
-            own_analytics: own_analytics.rows, result: data.rows, 
+            own_analytics: own_analytics.rows, result: data.rows,
+            user_name: req.session.passport.user.name   
           })
         } else {
           console.log('data is undefined')
@@ -354,7 +358,8 @@ router.post('/04', async function(req, res, next){
         if (data != undefined) {
           console.log(data.rows)
           res.render('danalytics', {
-            own_analytics: own_analytics.rows, result: data.rows, 
+            own_analytics: own_analytics.rows, result: data.rows,
+            user_name: req.session.passport.user.name   
           })
         } else {
           console.log('data is undefined')
@@ -377,7 +382,8 @@ router.post('/06', async function(req, res, next){
         if (data != undefined) {
           console.log(data.rows)
           res.render('danalytics', {
-            own_analytics: own_analytics.rows, result: data.rows, 
+            own_analytics: own_analytics.rows, result: data.rows,
+            user_name: req.session.passport.user.name   
           })
         } else {
           console.log('data is undefined')
@@ -400,7 +406,8 @@ router.post('/08', async function(req, res, next){
         if (data != undefined) {
           console.log(data.rows)
           res.render('danalytics', {
-            own_analytics: own_analytics.rows, result: data.rows, 
+            own_analytics: own_analytics.rows, result: data.rows,
+            user_name: req.session.passport.user.name   
           })
         } else {
           console.log('data is undefined')
@@ -423,7 +430,8 @@ router.post('/10', async function(req, res, next){
         if (data != undefined) {
           console.log(data.rows)
           res.render('danalytics', {
-            own_analytics: own_analytics.rows, result: data.rows, 
+            own_analytics: own_analytics.rows, result: data.rows,
+            user_name: req.session.passport.user.name   
           })
         } else {
           console.log('data is undefined')
@@ -446,7 +454,8 @@ router.post('/12', async function(req, res, next){
         if (data != undefined) {
           console.log(data.rows)
           res.render('danalytics', {
-            own_analytics: own_analytics.rows, result: data.rows, 
+            own_analytics: own_analytics.rows, result: data.rows,
+            user_name: req.session.passport.user.name   
           })
         } else {
           console.log('data is undefined')
@@ -469,7 +478,8 @@ router.post('/14', async function(req, res, next){
         if (data != undefined) {
           console.log(data.rows)
           res.render('danalytics', {
-            own_analytics: own_analytics.rows, result: data.rows, 
+            own_analytics: own_analytics.rows, result: data.rows,
+            user_name: req.session.passport.user.name   
           })
         } else {
           console.log('data is undefined')
@@ -492,7 +502,8 @@ router.post('/16', async function(req, res, next){
         if (data != undefined) {
           console.log(data.rows)
           res.render('danalytics', {
-            own_analytics: own_analytics.rows, result: data.rows, 
+            own_analytics: own_analytics.rows, result: data.rows,
+            user_name: req.session.passport.user.name   
           })
         } else {
           console.log('data is undefined')
@@ -515,7 +526,8 @@ router.post('/18', async function(req, res, next){
         if (data != undefined) {
           console.log(data.rows)
           res.render('danalytics', {
-            own_analytics: own_analytics.rows, result: data.rows, 
+            own_analytics: own_analytics.rows, result: data.rows,
+            user_name: req.session.passport.user.name   
           })
         } else {
           console.log('data is undefined')
@@ -538,7 +550,8 @@ router.post('/20', async function(req, res, next){
         if (data != undefined) {
           console.log(data.rows)
           res.render('danalytics', {
-            own_analytics: own_analytics.rows, result: data.rows, 
+            own_analytics: own_analytics.rows, result: data.rows,
+            user_name: req.session.passport.user.name   
           })
         } else {
           console.log('data is undefined')
@@ -561,7 +574,8 @@ router.post('/22', async function(req, res, next){
         if (data != undefined) {
           console.log(data.rows)
           res.render('danalytics', {
-            own_analytics: own_analytics.rows, result: data.rows, 
+            own_analytics: own_analytics.rows, result: data.rows,
+            user_name: req.session.passport.user.name   
           })
         } else {
           console.log('data is undefined')
