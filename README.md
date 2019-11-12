@@ -1,7 +1,8 @@
-# CS2102 TEAM 45 TOPIC Carpooling
-CS2102 Project
-Carpool
-This is a CS2102 Project done during AY19/20 S1. It allows users to sign up, then depending on when they sign up, they will be able to select if they want to be a driver or they want to be a passenger. Drivers are able to advertise rides and add the number of stops along the way. Passengers are able to bid for rides and drivers can accept the bids in real time. At the end of the ride users can give a rating to the driver and pay for their rides.
+# CS2102 Group 45 
+## TOPIC Carpooling
+
+RideShare
+This is a CS2102 Project done during AY19/20 S1. It allows users to sign up, then depending on when they sign up, they will be able to select if they want to be a driver or they want to be a passenger. Drivers are able to advertise rides and passengers are able to bid for rides. Drivers can then accept the bids in real time. At the end of the ride users can give a rating to the driver and pay for their rides. There are several other unique features like ratings, analytics, messaging, recommendations etc.
 
 ## Our Team
 1. Karnati Sai Abhishek
@@ -24,8 +25,12 @@ To start the client on localhost:3000:
 ```
 $ node bin/www
 ```
-## Instructions to Running Schema on PSQL prior to usage
-
+## Dependencies
 ```
-Run schema.sql in the directory Backend in your psql database before using the website
+npm i passport passport-local express-session express-flash dotenv bcrypt
+```
+
+## Instructions to Running Schema on PSQL prior to usage
+```
+Run schema.sql in the directory SQL in your psql database before launching the server
 ```

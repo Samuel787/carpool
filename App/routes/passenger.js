@@ -71,6 +71,7 @@ sql.query = {
                             where N.email = A.email
                             and CP.email_driver = A.email
                             and CP.vehicle = A.vehicle
+                            and A.email != $1
                             order by A.a_date desc, A.a_time desc;`,
 
     avail_vehicle: `select distinct vehicle from advertisesTrip where email = $1 and start_loc = $2 and end_loc = $3 and a_date = $4 and a_time = $5`,
@@ -204,7 +205,7 @@ router.get('/', async function(req, res, next) {
             pool.query(sql.query.recommended_drivers, [passenger_email], (err, data) => {
                 if (data != undefined) {
                     console.log(data.rows);
-                    pool.query(sql.query.avail_advertisements, (err, data2) => {
+                    pool.query(sql.query.avail_advertisements, [passenger_email], (err, data2) => {
                         pool.query(sql.query.favourite_location, [passenger_email], (err, data3) => {                           
                             pool.query(sql.query.current_bids, [passenger_email], (err, data4) => {
                                 pool.query(sql.query.insert_tier, (err, result) => {
@@ -290,7 +291,7 @@ router.post('/bid', async function(req, res, next){
         console.log('discount data is undefined')
     }
 
-    var avail_data = await pool.query(sql.query.avail_advertisements)
+    var avail_data = await pool.query(sql.query.avail_advertisements, [passenger_email])
     if (avail_data != undefined) {
         console.log(avail_data.rows)
         var advertisement = avail_data.rows[bid_num-1]

@@ -132,15 +132,3 @@ insert into discount(description, tier, amount) values ('20% coupon', 2, 20);
 insert into discount(description, tier, amount) values ('30% coupon', 3, 30);
 insert into discount(description, tier, amount) values ('40% coupon', 4, 40);
 insert into discount(description, tier, amount) values ('50% coupon', 5, 50);
-
-/*temporarily putting it here*/
-insert into location(loc_name, loc_add) values ('Queenstown','159432');
-insert into location(loc_name, loc_add) values ('Jurong','178543');
-insert into location(loc_name, loc_add) values ('Ang Mo Kio','760234');
-insert into location(loc_name, loc_add) values ('Bishan','643793');
-insert into location(loc_name, loc_add) values ('Toa Payoh','784393');
-insert into location(loc_name, loc_add) values ('NUS','439924');
-insert into location(loc_name, loc_add) values ('Yishun','329483');
-insert into location(loc_name, loc_add) values ('Yio Chu Kang','347294');
-insert into location(loc_name, loc_add) values ('Raffles','943554');
-insert into location(loc_name, loc_add) values ('Pasir Ris','984321');
