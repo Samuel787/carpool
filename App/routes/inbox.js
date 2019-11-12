@@ -13,8 +13,8 @@ sql.query = {
                   from message M, passenger P
                   where P.email = M.sender_email) Q, passenger P
                   where P.email = Q.receiver_email
-                  order by Q.msg_date desc, Q.msg_time desc;
-                  `,
+                  and (Q.receiver_email = $1 or Q.sender_email = $1)
+                  order by Q.msg_date desc, Q.msg_time desc;`,
   delete_message: `delete from message where msg_date = $1 and msg_time = $2 and sender_email = $3 and receiver_email = $4 and msg = $5;`
 }
 
@@ -26,7 +26,8 @@ router.get('/', function(req, res, next) {
         console.log("user not logged in");
     } else if(req.session.passport.user.id == "passenger"
                 || req.session.passport.user.id == "driver"){
-            pool.query(sql.query.view_message, (err, data) => {
+            passenger_email = req.session.passport.user.email;
+            pool.query(sql.query.view_message, [passenger_email], (err, data) => {
               if (data != undefined) {
                   console.log(data.rows)
                   res.render('inbox', {
