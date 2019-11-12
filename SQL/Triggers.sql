@@ -92,6 +92,66 @@ on gets
 for each row
 execute procedure redeem();
 
+WITH B AS (select T.email_driver as driver, T.vehicle, (T.pax - O.occupancy) as current_pax
+from (select D.email as email_driver, D.license_plate as vehicle, V.pax
+        from drives D, vehicles V
+        where D.license_plate = V.license_plate) T,
+((select email as email_driver, license_plate as vehicle, 0 as occupancy 
+    from drives 
+    where (email, license_plate) 
+        not in (select Q1.email_driver, Q1.vehicle
+                    from 
+                        (select email_driver, vehicle, count(*)
+                        from bid
+                        where e_date is null
+                        group by email_driver, vehicle) Q1
+                    left join 
+                        (select email_driver, vehicle, count(*) 
+                        from bid 
+                        where is_win is true
+                        and e_date is null
+                        group by email_driver, vehicle) Q2
+                    on  Q1.vehicle = Q2.vehicle
+                    and Q1.email_driver = Q2.email_driver
+                    group by Q1.email_driver, Q1.vehicle))
+union 
+/*to get occupancy*/
+(select Q1.email_driver, Q1.vehicle, coalesce(sum(Q2.count),0) as occupancy
+    from 
+        (select email_driver, vehicle, count(*)
+        from bid
+        where e_date is null
+        group by email_driver, vehicle) Q1
+    left join 
+        (select email_driver, vehicle, count(*) 
+        from bid 
+        where is_win is true
+        and e_date is null
+        group by email_driver, vehicle) Q2
+    on  Q1.vehicle = Q2.vehicle
+    and Q1.email_driver = Q2.email_driver
+    group by Q1.email_driver, Q1.vehicle)) O
+where T.email_driver = O.email_driver and T.vehicle = O.vehicle);
+
+--prevent driver from accepting any more bids
+create or replace function no_accept()
+returns trigger as $$
+BEGIN  
+    IF B.driver = NEW.driver and B.current_pax > 0
+    THEN
+    return NEW;
+    ELSE 
+    IF B.driver = NEW.driver and B.current_pax == 0
+    THEN return NULL;
+    END IF;
+END;
+$$ language plpgsql;
+
+create trigger prevent_bid
+before update
+on bid
+for each row
+execute procedure no accept();
 
 
 
