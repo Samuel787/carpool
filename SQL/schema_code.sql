@@ -132,5 +132,3 @@ insert into discount(description, tier, amount) values ('20% coupon', 2, 20);
 insert into discount(description, tier, amount) values ('30% coupon', 3, 30);
 insert into discount(description, tier, amount) values ('40% coupon', 4, 40);
 insert into discount(description, tier, amount) values ('50% coupon', 5, 50);
-
-
